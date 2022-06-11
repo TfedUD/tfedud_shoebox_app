@@ -15,7 +15,7 @@ from hb_utils.add_aps import add_aps_by_ratio, add_louver_shade
 
 st.set_page_config(
     page_title='UD Shoebox Study App',
-    layout='wide',
+    layout='centered',
     page_icon='./assets/UD_Logo.png'
 )
 
