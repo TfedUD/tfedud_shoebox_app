@@ -5,3 +5,5 @@ st.set_page_config(
     layout='wide',
     page_icon='./assets/UD_Logo.png'
 )
+
+st.sidebar.image('./assets/UD_Logo.png')
