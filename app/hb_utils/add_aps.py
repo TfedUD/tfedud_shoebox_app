@@ -1,4 +1,3 @@
-from ladybug_geometry.geometry2d.pointvector import Vector2D
 try:  # import the core honeybee dependencies
     from honeybee.boundarycondition import Outdoors
     from honeybee.facetype import Wall
@@ -23,11 +22,27 @@ except ImportError as e:
         raise ValueError('rad_mod_ has been specified but honeybee-radiance '
                          'has failed to import.\n{}'.format(e))
 
+from ladybug_geometry.geometry2d.pointvector import Vector2D
+
 
 def can_host_apeture(face):
     """Test if a face is intended to host apertures (according to this component)."""
     return isinstance(face.boundary_condition, Outdoors) and \
         isinstance(face.type, Wall)
+
+
+def assign_apertures(face, sub, rat, hgt, sil, hor, vert, op):
+    """Assign apertures to a Face based on a set of inputs."""
+    tolerance = 0.000
+    if sub:
+        face.apertures_by_ratio_rectangle(rat, hgt, sil, hor, vert, 0.001)
+    else:
+        face.apertures_by_ratio(rat, tolerance)
+
+    # try to assign the operable property
+    if op:
+        for ap in face.apertures:
+            ap.is_operable = op
 
 
 def add_aps_by_ratio(_obj, _ratio=[], _subdivide_=[], _win_height_=[], _sill_height_=[],
@@ -36,7 +51,8 @@ def add_aps_by_ratio(_obj, _ratio=[], _subdivide_=[], _win_height_=[], _sill_hei
     obj = _obj.duplicate()
 
     _subdivide_ = _subdivide_ if len(_subdivide_) != 0 else [True]
-    _win_height_ = _win_height_ if len(_win_height_) != 0 else [2.0]
+    _win_height_ = _win_height_ if len(_win_height_) != 0 else [
+        2.0]
     _sill_height_ = _sill_height_ if len(_sill_height_) != 0 else [
         0.8]
     _horiz_separ_ = _horiz_separ_ if len(_horiz_separ_) != 0 else [
@@ -62,27 +78,13 @@ def add_aps_by_ratio(_obj, _ratio=[], _subdivide_=[], _win_height_=[], _sill_hei
                 sub, rat, hgt, sil, hor, vert, op = inputs_by_index(
                     orient_i, all_inputs)
                 assign_apertures(face, sub, rat, hgt, sil, hor, vert, op)
+    elif isinstance(obj, Face):
+        if can_host_apeture(obj):
+            orient_i = face_orient_index(obj, angles)
+            sub, rat, hgt, sil, hor, vert, op = inputs_by_index(orient_i, all_inputs)
+            assign_apertures(obj, sub, rat, hgt, sil, hor, vert, op)
+
     return obj
-
-
-def can_host_apeture(face):
-    """Test if a face is intended to host apertures (according to this component)."""
-    return isinstance(face.boundary_condition, Outdoors) and \
-        isinstance(face.type, Wall)
-
-
-def assign_apertures(face, sub, rat, hgt, sil, hor, vert, op):
-    """Assign apertures to a Face based on a set of inputs."""
-    tolerance = 0.000
-    if sub:
-        face.apertures_by_ratio_rectangle(rat, hgt, sil, hor, vert, 0.001)
-    else:
-        face.apertures_by_ratio(rat, tolerance)
-
-    # try to assign the operable property
-    if op:
-        for ap in face.apertures:
-            ap.is_operable = op
 
 
 def can_host_louvers(face):
