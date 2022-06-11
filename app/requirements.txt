@@ -5,3 +5,4 @@ honeybee-vtk>=0.38.1
 git+https://github.com/pollination/pollination-streamlit.git
 ladybug-geometry>=1.24.2
 streamlit>=1.10.0
+streamlit_vtkjs>=0.2.0
