@@ -46,12 +46,57 @@
             "air_boundary_construction": "Generic Air Boundary",
             "constructions": [
                {
+                  "type": "WindowConstructionAbridged",
+                  "identifier": "Generic Double Pane",
+                  "materials": [
+                     "Generic Low-e Glass",
+                     "Generic Window Air Gap",
+                     "Generic Clear Glass"
+                  ]
+               },
+               {
+                  "type": "OpaqueConstructionAbridged",
+                  "identifier": "Generic Interior Door",
+                  "materials": [
+                     "Generic 25mm Wood"
+                  ]
+               },
+               {
+                  "type": "OpaqueConstructionAbridged",
+                  "identifier": "Generic Exposed Floor",
+                  "materials": [
+                     "Generic Painted Metal",
+                     "Generic Ceiling Air Gap",
+                     "Generic 50mm Insulation",
+                     "Generic LW Concrete"
+                  ]
+               },
+               {
+                  "type": "OpaqueConstructionAbridged",
+                  "identifier": "Generic Underground Roof",
+                  "materials": [
+                     "Generic 50mm Insulation",
+                     "Generic HW Concrete",
+                     "Generic Ceiling Air Gap",
+                     "Generic Acoustic Tile"
+                  ]
+               },
+               {
                   "type": "OpaqueConstructionAbridged",
                   "identifier": "Generic Interior Floor",
                   "materials": [
                      "Generic Acoustic Tile",
                      "Generic Ceiling Air Gap",
                      "Generic LW Concrete"
+                  ]
+               },
+               {
+                  "type": "OpaqueConstructionAbridged",
+                  "identifier": "Generic Exterior Door",
+                  "materials": [
+                     "Generic Painted Metal",
+                     "Generic 25mm Insulation",
+                     "Generic Painted Metal"
                   ]
                },
                {
@@ -67,10 +112,13 @@
                },
                {
                   "type": "OpaqueConstructionAbridged",
-                  "identifier": "Generic Ground Slab",
+                  "identifier": "Generic Roof",
                   "materials": [
+                     "Generic Roof Membrane",
                      "Generic 50mm Insulation",
-                     "Generic HW Concrete"
+                     "Generic LW Concrete",
+                     "Generic Ceiling Air Gap",
+                     "Generic Acoustic Tile"
                   ]
                },
                {
@@ -87,32 +135,6 @@
                   "identifier": "Generic Air Boundary",
                   "air_mixing_per_area": 0.1,
                   "air_mixing_schedule": "Always On"
-               },
-               {
-                  "type": "OpaqueConstructionAbridged",
-                  "identifier": "Generic Underground Roof",
-                  "materials": [
-                     "Generic 50mm Insulation",
-                     "Generic HW Concrete",
-                     "Generic Ceiling Air Gap",
-                     "Generic Acoustic Tile"
-                  ]
-               },
-               {
-                  "type": "WindowConstructionAbridged",
-                  "identifier": "Generic Double Pane",
-                  "materials": [
-                     "Generic Low-e Glass",
-                     "Generic Window Air Gap",
-                     "Generic Clear Glass"
-                  ]
-               },
-               {
-                  "type": "ShadeConstruction",
-                  "identifier": "Generic Shade",
-                  "solar_reflectance": 0.35,
-                  "visible_reflectance": 0.35,
-                  "is_specular": false
                },
                {
                   "type": "WindowConstructionAbridged",
@@ -133,22 +155,6 @@
                },
                {
                   "type": "OpaqueConstructionAbridged",
-                  "identifier": "Generic Interior Door",
-                  "materials": [
-                     "Generic 25mm Wood"
-                  ]
-               },
-               {
-                  "type": "OpaqueConstructionAbridged",
-                  "identifier": "Generic Exterior Door",
-                  "materials": [
-                     "Generic Painted Metal",
-                     "Generic 25mm Insulation",
-                     "Generic Painted Metal"
-                  ]
-               },
-               {
-                  "type": "OpaqueConstructionAbridged",
                   "identifier": "Generic Interior Wall",
                   "materials": [
                      "Generic Gypsum Board",
@@ -158,27 +164,68 @@
                },
                {
                   "type": "OpaqueConstructionAbridged",
-                  "identifier": "Generic Roof",
+                  "identifier": "Generic Ground Slab",
                   "materials": [
-                     "Generic Roof Membrane",
                      "Generic 50mm Insulation",
-                     "Generic LW Concrete",
-                     "Generic Ceiling Air Gap",
-                     "Generic Acoustic Tile"
+                     "Generic HW Concrete"
                   ]
                },
                {
-                  "type": "OpaqueConstructionAbridged",
-                  "identifier": "Generic Exposed Floor",
-                  "materials": [
-                     "Generic Painted Metal",
-                     "Generic Ceiling Air Gap",
-                     "Generic 50mm Insulation",
-                     "Generic LW Concrete"
-                  ]
+                  "type": "ShadeConstruction",
+                  "identifier": "Generic Shade",
+                  "solar_reflectance": 0.35,
+                  "visible_reflectance": 0.35,
+                  "is_specular": false
                }
             ],
             "materials": [
+               {
+                  "type": "EnergyWindowMaterialGas",
+                  "identifier": "Generic Window Air Gap",
+                  "thickness": 0.0127,
+                  "gas_type": "Air"
+               },
+               {
+                  "type": "EnergyMaterial",
+                  "identifier": "Generic Ceiling Air Gap",
+                  "roughness": "Smooth",
+                  "thickness": 0.1,
+                  "conductivity": 0.556,
+                  "density": 1.28,
+                  "specific_heat": 1000.0,
+                  "thermal_absorptance": 0.9,
+                  "solar_absorptance": 0.7,
+                  "visible_absorptance": 0.7
+               },
+               {
+                  "type": "EnergyMaterial",
+                  "identifier": "Generic Painted Metal",
+                  "roughness": "Smooth",
+                  "thickness": 0.0015,
+                  "conductivity": 45.0,
+                  "density": 7690.0,
+                  "specific_heat": 410.0,
+                  "thermal_absorptance": 0.9,
+                  "solar_absorptance": 0.5,
+                  "visible_absorptance": 0.5
+               },
+               {
+                  "type": "EnergyWindowMaterialGlazing",
+                  "identifier": "Generic Clear Glass",
+                  "thickness": 0.006,
+                  "solar_transmittance": 0.77,
+                  "solar_reflectance": 0.07,
+                  "solar_reflectance_back": 0.07,
+                  "visible_transmittance": 0.88,
+                  "visible_reflectance": 0.08,
+                  "visible_reflectance_back": 0.08,
+                  "infrared_transmittance": 0.0,
+                  "emissivity": 0.84,
+                  "emissivity_back": 0.84,
+                  "conductivity": 1.0,
+                  "dirt_correction": 1.0,
+                  "solar_diffusing": false
+               },
                {
                   "type": "EnergyMaterial",
                   "identifier": "Generic LW Concrete",
@@ -193,27 +240,15 @@
                },
                {
                   "type": "EnergyMaterial",
-                  "identifier": "Generic 25mm Wood",
-                  "roughness": "MediumSmooth",
-                  "thickness": 0.0254,
-                  "conductivity": 0.15,
-                  "density": 608.0,
-                  "specific_heat": 1630.0,
-                  "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.5,
-                  "visible_absorptance": 0.5
-               },
-               {
-                  "type": "EnergyMaterial",
-                  "identifier": "Generic 50mm Insulation",
+                  "identifier": "Generic HW Concrete",
                   "roughness": "MediumRough",
-                  "thickness": 0.05,
-                  "conductivity": 0.03,
-                  "density": 43.0,
-                  "specific_heat": 1210.0,
+                  "thickness": 0.2,
+                  "conductivity": 1.95,
+                  "density": 2240.0,
+                  "specific_heat": 900.0,
                   "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.7,
-                  "visible_absorptance": 0.7
+                  "solar_absorptance": 0.8,
+                  "visible_absorptance": 0.8
                },
                {
                   "type": "EnergyMaterial",
@@ -229,30 +264,6 @@
                },
                {
                   "type": "EnergyMaterial",
-                  "identifier": "Generic Gypsum Board",
-                  "roughness": "MediumSmooth",
-                  "thickness": 0.0127,
-                  "conductivity": 0.16,
-                  "density": 800.0,
-                  "specific_heat": 1090.0,
-                  "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.5,
-                  "visible_absorptance": 0.5
-               },
-               {
-                  "type": "EnergyMaterial",
-                  "identifier": "Generic Painted Metal",
-                  "roughness": "Smooth",
-                  "thickness": 0.0015,
-                  "conductivity": 45.0,
-                  "density": 7690.0,
-                  "specific_heat": 410.0,
-                  "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.5,
-                  "visible_absorptance": 0.5
-               },
-               {
-                  "type": "EnergyMaterial",
                   "identifier": "Generic Acoustic Tile",
                   "roughness": "MediumSmooth",
                   "thickness": 0.02,
@@ -262,6 +273,54 @@
                   "thermal_absorptance": 0.9,
                   "solar_absorptance": 0.2,
                   "visible_absorptance": 0.2
+               },
+               {
+                  "type": "EnergyMaterial",
+                  "identifier": "Generic Wall Air Gap",
+                  "roughness": "Smooth",
+                  "thickness": 0.1,
+                  "conductivity": 0.667,
+                  "density": 1.28,
+                  "specific_heat": 1000.0,
+                  "thermal_absorptance": 0.9,
+                  "solar_absorptance": 0.7,
+                  "visible_absorptance": 0.7
+               },
+               {
+                  "type": "EnergyMaterial",
+                  "identifier": "Generic 50mm Insulation",
+                  "roughness": "MediumRough",
+                  "thickness": 0.05,
+                  "conductivity": 0.03,
+                  "density": 43.0,
+                  "specific_heat": 1210.0,
+                  "thermal_absorptance": 0.9,
+                  "solar_absorptance": 0.7,
+                  "visible_absorptance": 0.7
+               },
+               {
+                  "type": "EnergyMaterial",
+                  "identifier": "Generic Roof Membrane",
+                  "roughness": "MediumRough",
+                  "thickness": 0.01,
+                  "conductivity": 0.16,
+                  "density": 1120.0,
+                  "specific_heat": 1460.0,
+                  "thermal_absorptance": 0.9,
+                  "solar_absorptance": 0.65,
+                  "visible_absorptance": 0.65
+               },
+               {
+                  "type": "EnergyMaterial",
+                  "identifier": "Generic Gypsum Board",
+                  "roughness": "MediumSmooth",
+                  "thickness": 0.0127,
+                  "conductivity": 0.16,
+                  "density": 800.0,
+                  "specific_heat": 1090.0,
+                  "thermal_absorptance": 0.9,
+                  "solar_absorptance": 0.5,
+                  "visible_absorptance": 0.5
                },
                {
                   "type": "EnergyWindowMaterialGlazing",
@@ -282,45 +341,15 @@
                },
                {
                   "type": "EnergyMaterial",
-                  "identifier": "Generic Roof Membrane",
-                  "roughness": "MediumRough",
-                  "thickness": 0.01,
-                  "conductivity": 0.16,
-                  "density": 1120.0,
-                  "specific_heat": 1460.0,
+                  "identifier": "Generic 25mm Wood",
+                  "roughness": "MediumSmooth",
+                  "thickness": 0.0254,
+                  "conductivity": 0.15,
+                  "density": 608.0,
+                  "specific_heat": 1630.0,
                   "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.65,
-                  "visible_absorptance": 0.65
-               },
-               {
-                  "type": "EnergyMaterial",
-                  "identifier": "Generic HW Concrete",
-                  "roughness": "MediumRough",
-                  "thickness": 0.2,
-                  "conductivity": 1.95,
-                  "density": 2240.0,
-                  "specific_heat": 900.0,
-                  "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.8,
-                  "visible_absorptance": 0.8
-               },
-               {
-                  "type": "EnergyWindowMaterialGas",
-                  "identifier": "Generic Window Air Gap",
-                  "thickness": 0.0127,
-                  "gas_type": "Air"
-               },
-               {
-                  "type": "EnergyMaterial",
-                  "identifier": "Generic Wall Air Gap",
-                  "roughness": "Smooth",
-                  "thickness": 0.1,
-                  "conductivity": 0.667,
-                  "density": 1.28,
-                  "specific_heat": 1000.0,
-                  "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.7,
-                  "visible_absorptance": 0.7
+                  "solar_absorptance": 0.5,
+                  "visible_absorptance": 0.5
                },
                {
                   "type": "EnergyMaterial",
@@ -333,35 +362,6 @@
                   "thermal_absorptance": 0.9,
                   "solar_absorptance": 0.65,
                   "visible_absorptance": 0.65
-               },
-               {
-                  "type": "EnergyMaterial",
-                  "identifier": "Generic Ceiling Air Gap",
-                  "roughness": "Smooth",
-                  "thickness": 0.1,
-                  "conductivity": 0.556,
-                  "density": 1.28,
-                  "specific_heat": 1000.0,
-                  "thermal_absorptance": 0.9,
-                  "solar_absorptance": 0.7,
-                  "visible_absorptance": 0.7
-               },
-               {
-                  "type": "EnergyWindowMaterialGlazing",
-                  "identifier": "Generic Clear Glass",
-                  "thickness": 0.006,
-                  "solar_transmittance": 0.77,
-                  "solar_reflectance": 0.07,
-                  "solar_reflectance_back": 0.07,
-                  "visible_transmittance": 0.88,
-                  "visible_reflectance": 0.08,
-                  "visible_reflectance_back": 0.08,
-                  "infrared_transmittance": 0.0,
-                  "emissivity": 0.84,
-                  "emissivity_back": 0.84,
-                  "conductivity": 1.0,
-                  "dirt_correction": 1.0,
-                  "solar_diffusing": false
                }
             ]
          },
@@ -389,38 +389,38 @@
          "global_modifier_set": {
             "type": "GlobalModifierSet",
             "wall_set": {
-               "exterior_modifier": "generic_wall_0.50",
                "interior_modifier": "generic_wall_0.50",
+               "exterior_modifier": "generic_wall_0.50",
                "type": "WallModifierSetAbridged"
             },
             "floor_set": {
-               "exterior_modifier": "generic_floor_0.20",
                "interior_modifier": "generic_floor_0.20",
+               "exterior_modifier": "generic_floor_0.20",
                "type": "FloorModifierSetAbridged"
             },
             "roof_ceiling_set": {
-               "exterior_modifier": "generic_ceiling_0.80",
                "interior_modifier": "generic_ceiling_0.80",
+               "exterior_modifier": "generic_ceiling_0.80",
                "type": "RoofCeilingModifierSetAbridged"
             },
             "aperture_set": {
-               "operable_modifier": "generic_exterior_window_vis_0.64",
-               "skylight_modifier": "generic_exterior_window_vis_0.64",
                "interior_modifier": "generic_interior_window_vis_0.88",
+               "skylight_modifier": "generic_exterior_window_vis_0.64",
+               "operable_modifier": "generic_exterior_window_vis_0.64",
                "type": "ApertureModifierSetAbridged",
                "window_modifier": "generic_exterior_window_vis_0.64"
             },
             "door_set": {
-               "interior_glass_modifier": "generic_interior_window_vis_0.88",
                "interior_modifier": "generic_opaque_door_0.50",
                "overhead_modifier": "generic_opaque_door_0.50",
-               "exterior_modifier": "generic_opaque_door_0.50",
+               "interior_glass_modifier": "generic_interior_window_vis_0.88",
                "exterior_glass_modifier": "generic_exterior_window_vis_0.64",
+               "exterior_modifier": "generic_opaque_door_0.50",
                "type": "DoorModifierSetAbridged"
             },
             "shade_set": {
-               "exterior_modifier": "generic_exterior_shade_0.35",
                "interior_modifier": "generic_interior_shade_0.50",
+               "exterior_modifier": "generic_exterior_shade_0.35",
                "type": "ShadeModifierSetAbridged"
             },
             "air_boundary_modifier": "air_boundary",
@@ -428,10 +428,10 @@
                {
                   "modifier": null,
                   "type": "Plastic",
-                  "identifier": "generic_ceiling_0.80",
-                  "r_reflectance": 0.8,
-                  "g_reflectance": 0.8,
-                  "b_reflectance": 0.8,
+                  "identifier": "generic_wall_0.50",
+                  "r_reflectance": 0.5,
+                  "g_reflectance": 0.5,
+                  "b_reflectance": 0.5,
                   "specularity": 0.0,
                   "roughness": 0.0,
                   "dependencies": []
@@ -445,6 +445,27 @@
                   "b_reflectance": 0.5,
                   "specularity": 0.0,
                   "roughness": 0.0,
+                  "dependencies": []
+               },
+               {
+                  "modifier": null,
+                  "type": "Plastic",
+                  "identifier": "generic_ceiling_0.80",
+                  "r_reflectance": 0.8,
+                  "g_reflectance": 0.8,
+                  "b_reflectance": 0.8,
+                  "specularity": 0.0,
+                  "roughness": 0.0,
+                  "dependencies": []
+               },
+               {
+                  "modifier": null,
+                  "type": "Glass",
+                  "identifier": "generic_interior_window_vis_0.88",
+                  "r_transmissivity": 0.9584154328610596,
+                  "g_transmissivity": 0.9584154328610596,
+                  "b_transmissivity": 0.9584154328610596,
+                  "refraction_index": null,
                   "dependencies": []
                },
                {
@@ -463,10 +484,10 @@
                {
                   "modifier": null,
                   "type": "Plastic",
-                  "identifier": "generic_floor_0.20",
-                  "r_reflectance": 0.2,
-                  "g_reflectance": 0.2,
-                  "b_reflectance": 0.2,
+                  "identifier": "generic_exterior_shade_0.35",
+                  "r_reflectance": 0.35,
+                  "g_reflectance": 0.35,
+                  "b_reflectance": 0.35,
                   "specularity": 0.0,
                   "roughness": 0.0,
                   "dependencies": []
@@ -474,32 +495,12 @@
                {
                   "modifier": null,
                   "type": "Plastic",
-                  "identifier": "generic_wall_0.50",
-                  "r_reflectance": 0.5,
-                  "g_reflectance": 0.5,
-                  "b_reflectance": 0.5,
+                  "identifier": "generic_floor_0.20",
+                  "r_reflectance": 0.2,
+                  "g_reflectance": 0.2,
+                  "b_reflectance": 0.2,
                   "specularity": 0.0,
                   "roughness": 0.0,
-                  "dependencies": []
-               },
-               {
-                  "modifier": null,
-                  "type": "Glass",
-                  "identifier": "generic_interior_window_vis_0.88",
-                  "r_transmissivity": 0.9584154328610596,
-                  "g_transmissivity": 0.9584154328610596,
-                  "b_transmissivity": 0.9584154328610596,
-                  "refraction_index": null,
-                  "dependencies": []
-               },
-               {
-                  "modifier": null,
-                  "type": "Glass",
-                  "identifier": "generic_exterior_window_vis_0.64",
-                  "r_transmissivity": 0.6975761815384331,
-                  "g_transmissivity": 0.6975761815384331,
-                  "b_transmissivity": 0.6975761815384331,
-                  "refraction_index": null,
                   "dependencies": []
                },
                {
@@ -515,13 +516,12 @@
                },
                {
                   "modifier": null,
-                  "type": "Plastic",
-                  "identifier": "generic_exterior_shade_0.35",
-                  "r_reflectance": 0.35,
-                  "g_reflectance": 0.35,
-                  "b_reflectance": 0.35,
-                  "specularity": 0.0,
-                  "roughness": 0.0,
+                  "type": "Glass",
+                  "identifier": "generic_exterior_window_vis_0.64",
+                  "r_transmissivity": 0.6975761815384331,
+                  "g_transmissivity": 0.6975761815384331,
+                  "b_transmissivity": 0.6975761815384331,
+                  "refraction_index": null,
                   "dependencies": []
                }
             ]
@@ -562,12 +562,12 @@
                   "type": "Face3D",
                   "boundary": [
                      [
-                        5.0,
+                        20.0,
                         8.0,
                         0.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         0.0,
                         0.0
                      ],
@@ -623,12 +623,12 @@
                   "type": "Face3D",
                   "boundary": [
                      [
-                        5.0,
+                        20.0,
                         8.0,
                         3.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         8.0,
                         0.0
                      ],
@@ -651,7 +651,7 @@
                         0.0
                      ],
                      "o": [
-                        5.0,
+                        20.0,
                         8.0,
                         0.0
                      ],
@@ -689,22 +689,22 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              4.6875,
+                              19.642857142857142,
                               8.0,
                               2.8
                            ],
                            [
-                              4.6875,
+                              19.642857142857142,
                               8.0,
                               0.8
                            ],
                            [
-                              2.8125,
+                              17.5,
                               8.0,
                               0.8
                            ],
                            [
-                              2.8125,
+                              17.5,
                               8.0,
                               2.8
                            ]
@@ -717,7 +717,7 @@
                               -0.0
                            ],
                            "o": [
-                              5.0,
+                              20.0,
                               8.0,
                               0.0
                            ],
@@ -755,22 +755,22 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              2.1875,
+                              16.785714285714285,
                               8.0,
                               2.8
                            ],
                            [
-                              2.1875,
+                              16.785714285714285,
                               8.0,
                               0.8
                            ],
                            [
-                              0.3125,
+                              14.642857142857142,
                               8.0,
                               0.8
                            ],
                            [
-                              0.3125,
+                              14.642857142857142,
                               8.0,
                               2.8
                            ]
@@ -783,7 +783,337 @@
                               -0.0
                            ],
                            "o": [
-                              5.0,
+                              20.0,
+                              8.0,
+                              0.0
+                           ],
+                           "x": [
+                              -1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Front_Glz2",
+                     "display_name": "Single_Zone_Front_Glz2",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              13.928571428571429,
+                              8.0,
+                              2.8
+                           ],
+                           [
+                              13.928571428571429,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              11.785714285714286,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              11.785714285714286,
+                              8.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              1.0,
+                              -0.0
+                           ],
+                           "o": [
+                              20.0,
+                              8.0,
+                              0.0
+                           ],
+                           "x": [
+                              -1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Front_Glz3",
+                     "display_name": "Single_Zone_Front_Glz3",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              11.071428571428571,
+                              8.0,
+                              2.8
+                           ],
+                           [
+                              11.071428571428571,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              8.92857142857143,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              8.92857142857143,
+                              8.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              1.0,
+                              -0.0
+                           ],
+                           "o": [
+                              20.0,
+                              8.0,
+                              0.0
+                           ],
+                           "x": [
+                              -1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Front_Glz4",
+                     "display_name": "Single_Zone_Front_Glz4",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              8.214285714285715,
+                              8.0,
+                              2.8
+                           ],
+                           [
+                              8.214285714285715,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              6.071428571428573,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              6.071428571428573,
+                              8.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              1.0,
+                              -0.0
+                           ],
+                           "o": [
+                              20.0,
+                              8.0,
+                              0.0
+                           ],
+                           "x": [
+                              -1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Front_Glz5",
+                     "display_name": "Single_Zone_Front_Glz5",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              5.3571428571428585,
+                              8.0,
+                              2.8
+                           ],
+                           [
+                              5.3571428571428585,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              3.2142857142857184,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              3.2142857142857184,
+                              8.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              1.0,
+                              -0.0
+                           ],
+                           "o": [
+                              20.0,
+                              8.0,
+                              0.0
+                           ],
+                           "x": [
+                              -1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Front_Glz6",
+                     "display_name": "Single_Zone_Front_Glz6",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              2.5000000000000036,
+                              8.0,
+                              2.8
+                           ],
+                           [
+                              2.5000000000000036,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              0.35714285714286076,
+                              8.0,
+                              0.8
+                           ],
+                           [
+                              0.35714285714286076,
+                              8.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              1.0,
+                              -0.0
+                           ],
+                           "o": [
+                              20.0,
                               8.0,
                               0.0
                            ],
@@ -823,22 +1153,22 @@
                   "type": "Face3D",
                   "boundary": [
                      [
-                        5.0,
+                        20.0,
                         0.0,
                         3.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         0.0,
                         0.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         8.0,
                         0.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         8.0,
                         3.0
                      ]
@@ -851,7 +1181,7 @@
                         0.0
                      ],
                      "o": [
-                        5.0,
+                        20.0,
                         8.0,
                         3.0
                      ],
@@ -889,22 +1219,22 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              5.0,
+                              20.0,
                               0.33333333333333326,
                               2.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               0.33333333333333326,
                               0.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               2.333333333333333,
                               0.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               2.333333333333333,
                               2.8
                            ]
@@ -917,7 +1247,7 @@
                               0.0
                            ],
                            "o": [
-                              5.0,
+                              20.0,
                               0.0,
                               0.0
                            ],
@@ -955,22 +1285,22 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              5.0,
+                              20.0,
                               3.0,
                               2.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               3.0,
                               0.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               5.0,
                               0.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               5.0,
                               2.8
                            ]
@@ -983,7 +1313,7 @@
                               0.0
                            ],
                            "o": [
-                              5.0,
+                              20.0,
                               0.0,
                               0.0
                            ],
@@ -1021,22 +1351,22 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              5.0,
+                              20.0,
                               5.666666666666666,
                               2.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               5.666666666666666,
                               0.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               7.666666666666666,
                               0.8
                            ],
                            [
-                              5.0,
+                              20.0,
                               7.666666666666666,
                               2.8
                            ]
@@ -1049,7 +1379,7 @@
                               0.0
                            ],
                            "o": [
-                              5.0,
+                              20.0,
                               0.0,
                               0.0
                            ],
@@ -1099,12 +1429,12 @@
                         0.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         0.0,
                         0.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         0.0,
                         3.0
                      ]
@@ -1155,22 +1485,22 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              0.3125,
+                              0.357142857142857,
                               0.0,
                               2.8
                            ],
                            [
-                              0.3125,
+                              0.357142857142857,
                               0.0,
                               0.8
                            ],
                            [
-                              2.1875,
+                              2.5,
                               0.0,
                               0.8
                            ],
                            [
-                              2.1875,
+                              2.5,
                               0.0,
                               2.8
                            ]
@@ -1221,22 +1551,352 @@
                         "type": "Face3D",
                         "boundary": [
                            [
-                              2.8125,
+                              3.2142857142857135,
                               0.0,
                               2.8
                            ],
                            [
-                              2.8125,
+                              3.2142857142857135,
                               0.0,
                               0.8
                            ],
                            [
-                              4.6875,
+                              5.357142857142856,
                               0.0,
                               0.8
                            ],
                            [
-                              4.6875,
+                              5.357142857142856,
+                              0.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              -1.0,
+                              0.0
+                           ],
+                           "o": [
+                              0.0,
+                              0.0,
+                              0.0
+                           ],
+                           "x": [
+                              1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Back_Glz2",
+                     "display_name": "Single_Zone_Back_Glz2",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              6.07142857142857,
+                              0.0,
+                              2.8
+                           ],
+                           [
+                              6.07142857142857,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              8.214285714285714,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              8.214285714285714,
+                              0.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              -1.0,
+                              0.0
+                           ],
+                           "o": [
+                              0.0,
+                              0.0,
+                              0.0
+                           ],
+                           "x": [
+                              1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Back_Glz3",
+                     "display_name": "Single_Zone_Back_Glz3",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              8.928571428571429,
+                              0.0,
+                              2.8
+                           ],
+                           [
+                              8.928571428571429,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              11.071428571428571,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              11.071428571428571,
+                              0.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              -1.0,
+                              0.0
+                           ],
+                           "o": [
+                              0.0,
+                              0.0,
+                              0.0
+                           ],
+                           "x": [
+                              1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Back_Glz4",
+                     "display_name": "Single_Zone_Back_Glz4",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              11.785714285714285,
+                              0.0,
+                              2.8
+                           ],
+                           [
+                              11.785714285714285,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              13.928571428571429,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              13.928571428571429,
+                              0.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              -1.0,
+                              0.0
+                           ],
+                           "o": [
+                              0.0,
+                              0.0,
+                              0.0
+                           ],
+                           "x": [
+                              1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Back_Glz5",
+                     "display_name": "Single_Zone_Back_Glz5",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              14.64285714285714,
+                              0.0,
+                              2.8
+                           ],
+                           [
+                              14.64285714285714,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              16.78571428571428,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              16.78571428571428,
+                              0.0,
+                              2.8
+                           ]
+                        ],
+                        "plane": {
+                           "type": "Plane",
+                           "n": [
+                              0.0,
+                              -1.0,
+                              0.0
+                           ],
+                           "o": [
+                              0.0,
+                              0.0,
+                              0.0
+                           ],
+                           "x": [
+                              1.0,
+                              0.0,
+                              0.0
+                           ]
+                        }
+                     },
+                     "is_operable": false,
+                     "boundary_condition": {
+                        "type": "Outdoors",
+                        "sun_exposure": true,
+                        "wind_exposure": true,
+                        "view_factor": {
+                           "type": "Autocalculate"
+                        }
+                     }
+                  },
+                  {
+                     "type": "Aperture",
+                     "identifier": "Single_Zone_Back_Glz6",
+                     "display_name": "Single_Zone_Back_Glz6",
+                     "properties": {
+                        "type": "AperturePropertiesAbridged",
+                        "energy": {
+                           "type": "ApertureEnergyPropertiesAbridged"
+                        },
+                        "radiance": {
+                           "type": "ApertureRadiancePropertiesAbridged"
+                        }
+                     },
+                     "geometry": {
+                        "type": "Face3D",
+                        "boundary": [
+                           [
+                              17.499999999999996,
+                              0.0,
+                              2.8
+                           ],
+                           [
+                              17.499999999999996,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              19.64285714285714,
+                              0.0,
+                              0.8
+                           ],
+                           [
+                              19.64285714285714,
                               0.0,
                               2.8
                            ]
@@ -1565,12 +2225,12 @@
                         3.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         0.0,
                         3.0
                      ],
                      [
-                        5.0,
+                        20.0,
                         8.0,
                         3.0
                      ]
