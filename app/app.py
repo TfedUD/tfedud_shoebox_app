@@ -6,12 +6,13 @@ import json
 import os
 from honeybee.model import Model
 from honeybee.room import Room
-
+from honeybee_energy.lib.programtypes import STANDARDS_REGISTRY, PROGRAM_TYPES
 
 import honeybee_vtk.model
 from honeybee_vtk.model import DisplayMode
 
 from hb_utils.add_aps import add_aps_by_ratio, add_louver_shade
+from hb_utils.lib_utils import GetBaseCon, get_room_programs
 
 
 st.set_page_config(
@@ -92,27 +93,40 @@ with st.expander("Baseline Typology Data"):
     col1, col2 = st.columns(2)
     with col1:
         st.write("""#### Construction Set""")
-        _climate = st.selectbox('Climate Zone',
-                                ('1-Very Hot', '2-Hot', '3-Warm',
-                                    '4-Mixed', '5-Cool', '6-Cold',
-                                    '7-Very Cold', '8-Subartic')
-                                )
-        _vintage = st.selectbox('Building Vintage',
-                                ('ASHRAE 90.1 2019', 'ASHRAE 90.1 2016',
-                                    'AHSRAE 90.1 2013')
-                                )
-        _constr_type = st.selectbox('Baseline Construction Type',
-                                    ('SteelFramed', 'WoodFramed',
-                                        'Metal Building', 'Mass')
-                                    )
+        climate = st.selectbox('Climate Zone',
+                               ('1-Very Hot', '2-Hot', '3-Warm',
+                                '4-Mixed', '5-Cool', '6-Cold',
+                                '7-Very Cold', '8-Subartic')
+                               )
+        vintage = st.selectbox('Building Vintage',
+                               ('ASHRAE 90.1 2019', 'ASHRAE 90.1 2016',
+                                'AHSRAE 90.1 2013', 'ASHRAE 90.1 2010', 'ASHRAE 90.1')
+                               )
+        constr_type = st.selectbox('Baseline Construction Type',
+                                   ('SteelFramed', 'WoodFramed',
+                                    'Metal Building', 'Mass')
+                                   )
 
     with col2:
         st.write("""#### Zone Program""")
-        _bldg_typol = st.selectbox(
+        bldg_typol = st.selectbox(
             'Building Use',
-            ('LargeOffice', 'MediumOffice', 'MidriseApartment', 'HighriseApartment',))
-        st.write("""Need to add a widget for programs""")
+            ['LargeOffice', 'MediumOffice', 'MidriseApartment', 'HighriseApartment',
+             'Retail', 'StripMall', 'PrimarySchool', 'SecondarySchool', 'SmallHotel',
+             'LargeHotel', 'Hospital', 'Outpatient', 'Laboratory', 'Warehouse',
+             'SuperMarket', 'FullServiceResturant', 'QuickServiceResturant',
+             'Courthouse', 'LargeDataCenterHighITE', 'LargeDataCenterLowITE',
+             'SmallDataCenterHighITE', 'SmallDataCenterLowITE'])
 
+        selected_program = st.selectbox(
+            'Zone Program', get_room_programs(bldg_typol, str(vintage)))
+
+        st.write("""***""")
+
+
+# TODO
+our_constr = GetBaseCon(climate, vintage, constr_type)
+# TODO
 
 _send_it = st.sidebar.button('Accept Inputs')
 
