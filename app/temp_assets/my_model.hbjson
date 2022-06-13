@@ -675,7 +675,237 @@
                         "view_factor": {
                            "type": "Autocalculate"
                         }
-                     }
+                     },
+                     "outdoor_shades": [
+                        {
+                           "type": "Shade",
+                           "identifier": "Single_Zone_Back_Glz0_OutShd0",
+                           "display_name": "Single_Zone_Back_Glz0_OutShd0",
+                           "properties": {
+                              "type": "ShadePropertiesAbridged",
+                              "energy": {
+                                 "type": "ShadeEnergyPropertiesAbridged"
+                              },
+                              "radiance": {
+                                 "type": "ShadeRadiancePropertiesAbridged"
+                              }
+                           },
+                           "geometry": {
+                              "type": "Face3D",
+                              "boundary": [
+                                 [
+                                    0.04499999999999993,
+                                    0.0,
+                                    1.9857141857142855
+                                 ],
+                                 [
+                                    0.04499999999999993,
+                                    -0.2,
+                                    1.9857141857142855
+                                 ],
+                                 [
+                                    4.455,
+                                    -0.2,
+                                    1.9857141857142855
+                                 ],
+                                 [
+                                    4.455,
+                                    0.0,
+                                    1.9857141857142855
+                                 ]
+                              ],
+                              "plane": {
+                                 "type": "Plane",
+                                 "n": [
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                 ],
+                                 "o": [
+                                    4.455,
+                                    0.0,
+                                    1.9857141857142855
+                                 ],
+                                 "x": [
+                                    1.0,
+                                    0.0,
+                                    0.0
+                                 ]
+                              }
+                           }
+                        },
+                        {
+                           "type": "Shade",
+                           "identifier": "Single_Zone_Back_Glz0_OutShd1",
+                           "display_name": "Single_Zone_Back_Glz0_OutShd1",
+                           "properties": {
+                              "type": "ShadePropertiesAbridged",
+                              "energy": {
+                                 "type": "ShadeEnergyPropertiesAbridged"
+                              },
+                              "radiance": {
+                                 "type": "ShadeRadiancePropertiesAbridged"
+                              }
+                           },
+                           "geometry": {
+                              "type": "Face3D",
+                              "boundary": [
+                                 [
+                                    0.04499999999999993,
+                                    0.0,
+                                    1.5357141857142855
+                                 ],
+                                 [
+                                    0.04499999999999993,
+                                    -0.2,
+                                    1.5357141857142855
+                                 ],
+                                 [
+                                    4.455,
+                                    -0.2,
+                                    1.5357141857142855
+                                 ],
+                                 [
+                                    4.455,
+                                    0.0,
+                                    1.5357141857142855
+                                 ]
+                              ],
+                              "plane": {
+                                 "type": "Plane",
+                                 "n": [
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                 ],
+                                 "o": [
+                                    4.455,
+                                    0.0,
+                                    1.5357141857142855
+                                 ],
+                                 "x": [
+                                    1.0,
+                                    0.0,
+                                    0.0
+                                 ]
+                              }
+                           }
+                        },
+                        {
+                           "type": "Shade",
+                           "identifier": "Single_Zone_Back_Glz0_OutShd2",
+                           "display_name": "Single_Zone_Back_Glz0_OutShd2",
+                           "properties": {
+                              "type": "ShadePropertiesAbridged",
+                              "energy": {
+                                 "type": "ShadeEnergyPropertiesAbridged"
+                              },
+                              "radiance": {
+                                 "type": "ShadeRadiancePropertiesAbridged"
+                              }
+                           },
+                           "geometry": {
+                              "type": "Face3D",
+                              "boundary": [
+                                 [
+                                    0.04499999999999993,
+                                    0.0,
+                                    1.0857141857142856
+                                 ],
+                                 [
+                                    0.04499999999999993,
+                                    -0.2,
+                                    1.0857141857142856
+                                 ],
+                                 [
+                                    4.455,
+                                    -0.2,
+                                    1.0857141857142856
+                                 ],
+                                 [
+                                    4.455,
+                                    0.0,
+                                    1.0857141857142856
+                                 ]
+                              ],
+                              "plane": {
+                                 "type": "Plane",
+                                 "n": [
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                 ],
+                                 "o": [
+                                    4.455,
+                                    0.0,
+                                    1.0857141857142856
+                                 ],
+                                 "x": [
+                                    1.0,
+                                    0.0,
+                                    0.0
+                                 ]
+                              }
+                           }
+                        },
+                        {
+                           "type": "Shade",
+                           "identifier": "Single_Zone_Back_Glz0_OutShd3",
+                           "display_name": "Single_Zone_Back_Glz0_OutShd3",
+                           "properties": {
+                              "type": "ShadePropertiesAbridged",
+                              "energy": {
+                                 "type": "ShadeEnergyPropertiesAbridged"
+                              },
+                              "radiance": {
+                                 "type": "ShadeRadiancePropertiesAbridged"
+                              }
+                           },
+                           "geometry": {
+                              "type": "Face3D",
+                              "boundary": [
+                                 [
+                                    0.04499999999999993,
+                                    0.0,
+                                    0.6357141857142858
+                                 ],
+                                 [
+                                    0.04499999999999993,
+                                    -0.2,
+                                    0.6357141857142858
+                                 ],
+                                 [
+                                    4.455,
+                                    -0.2,
+                                    0.6357141857142858
+                                 ],
+                                 [
+                                    4.455,
+                                    0.0,
+                                    0.6357141857142858
+                                 ]
+                              ],
+                              "plane": {
+                                 "type": "Plane",
+                                 "n": [
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                 ],
+                                 "o": [
+                                    4.455,
+                                    0.0,
+                                    0.6357141857142858
+                                 ],
+                                 "x": [
+                                    1.0,
+                                    0.0,
+                                    0.0
+                                 ]
+                              }
+                           }
+                        }
+                     ]
                   }
                ]
             },
