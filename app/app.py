@@ -98,10 +98,11 @@ with st.expander("Baseline Typology Data"):
                                 '4-Mixed', '5-Cool', '6-Cold',
                                 '7-Very Cold', '8-Subartic')
                                )
-        vintage = st.selectbox('Building Vintage',
-                               ('ASHRAE 90.1 2019', 'ASHRAE 90.1 2016',
-                                'AHSRAE 90.1 2013', 'ASHRAE 90.1 2010', 'ASHRAE 90.1')
-                               )
+        vintage = st.selectbox(
+            'Building Vintage',
+            ('ASHRAE 90.1 2019', 'ASHRAE 90.1 2016', 'AHSRAE 90.1 2013',
+             'ASHRAE 90.1 2010', 'ASHRAE 90.1 2007'))
+
         constr_type = st.selectbox('Baseline Construction Type',
                                    ('SteelFramed', 'WoodFramed',
                                     'Metal Building', 'Mass')
@@ -120,8 +121,6 @@ with st.expander("Baseline Typology Data"):
 
         selected_program = st.selectbox(
             'Zone Program', get_room_programs(bldg_typol, str(vintage)))
-
-        st.write("""***""")
 
 
 # TODO
